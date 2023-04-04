@@ -22,7 +22,7 @@ while { [gets $infile line] >= 0 } {
     $p plot data $n $count
 
     $p plot fit  $n [expr {exp(0.7*sqrt($n))}]
-    $p plot fit2 $n [expr {exp(0.8*sqrt($n))}]
+    #$p plot fit2 $n [expr {exp(0.8*sqrt($n))}]
 }
 
 after 1000 {
