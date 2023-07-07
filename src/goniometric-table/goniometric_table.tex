@@ -1,0 +1,67 @@
+\documentclass[onecolumn]{article}
+\usepackage{hyperref}
+\begin{document}
+
+\title{A mostly useless table for exact goniometric functions}
+
+\author{Arjen Markus}
+
+\maketitle
+
+\subsection*{Introduction}
+In school I learned the exact expressions for the sine, cosine and tangent
+of certain angles -- 0, 30, 45, 60 and 90 degrees. These exact expressions
+are fairly simple, but the list is incomplete: with the formulae for the
+sine, cosine and tangent of the sum and the difference of two angles, it is easy
+to get expressions for 15 and 75 degrees as well.
+
+Here is the result:
+
+\vspace{\baselineskip}
+\begin{tabular}{ccccc}
+\emph{Angle}     & \emph{Angle}          & \emph{Sine}                          & \emph{Cosine}                        & \emph{Tangent}              \\
+\emph{degrees}   & \emph{radians}        &                                      &                                      &                             \\
+\hline
+   0             &     0                 &     0                                &     1                                &     0                       \\
+  15             &  $\frac{1}{12} \pi$   &   $\frac{1}{4}(\sqrt{6} - \sqrt{2})$ &  $\frac{1}{4}(\sqrt{6} + \sqrt{2})$  &  $1 - \frac{1}{2} \sqrt{3}$ \\
+  30             &  $\frac{1}{6} \pi$    &   $\frac{1}{2}$                      & $\frac{1}{2} \sqrt{3}$               &  $\frac{1}{3} \sqrt{3}$     \\
+  45             &  $\frac{1}{4} \pi$    &   $\frac{1}{2} \sqrt{2}$             & $\frac{1}{2} \sqrt{2}$               &     1                       \\
+  60             &  $\frac{1}{3} \pi$    &   $\frac{1}{2} \sqrt{3}$             & $\frac{1}{2}$                        &  $\sqrt{3}$                 \\
+  75             &  $\frac{5}{12} \pi$   &   $\frac{1}{4}(\sqrt{6} + \sqrt{2})$ &  $\frac{1}{4}(\sqrt{6} - \sqrt{2})$  &  $2 + \sqrt{3}$             \\
+  90             &  $\frac{1}{2} \pi$    &     1                                &     0                                &  $\infty$                   \\
+\hline
+\end{tabular}
+\vspace{\baselineskip}
+
+Can we refine this table? Yes, of course: we have the pentagon.
+
+\subsection*{Extending the table via a pentagon}
+The regular pentagon has angles of 72 degrees or $\frac{2}{5} \pi$ radians between the centre and its vertices (\url{https://mathworld.wolfram.com/RegularPentagon.html}). Thanks to this
+figure, we know the exact sines and cosines of this angle:
+\begin{eqnarray*}
+    \cos(\frac{2}{5} \pi) &=& \frac{1}{4}(\sqrt{5} - 1) \\
+    \sin(\frac{2}{5} \pi) &=& \frac{1}{4}\sqrt{ 10 + 2 \sqrt{5}}
+\end{eqnarray*}
+
+Together with the summation and difference formulae we can -- in principle -- extend the above table to multiples of 3~degrees!
+In principle, because the expressions are rather complicated for some of these angles and lose all practical relevance.
+
+The angle of 3~degrees $= 75 -72$~degrees has the following exact expressions for the sine and cosine:
+\begin{eqnarray*}
+     \sin(3^\circ)  &=& \sin(75^\circ) \cos(72^\circ) - \cos(75^\circ) \sin(72^\circ) \\
+                    &=& \frac{1}{4} (\sqrt{6} + \sqrt{2}) \cdot \frac{1}{4}(\sqrt{5} - 1) - \frac{1}{4} (\sqrt{6} - \sqrt{2}) \cdot \frac{1}{4}\sqrt{ 10 + 2 \sqrt{5}} \\
+     \cos(3^\circ)  &=& \cos(75^\circ) \cos(72^\circ) + \sin(75^\circ) \sin(72^\circ) \\
+                    &=& \frac{1}{4} (\sqrt{6} - \sqrt{2}) \cdot \frac{1}{4}(\sqrt{5} - 1) + \frac{1}{4} (\sqrt{6} + \sqrt{2}) \cdot \frac{1}{4}\sqrt{ 10 + 2 \sqrt{5}} \\
+\end{eqnarray*}
+
+The possibilities to simplify these expressions are at best limited and the exact expression for $tan(3^\circ)$ is even more daunting!
+
+For some of the multiples of 3~degrees (excluding the multiples of 15~degrees) there are relatively simple expressions, such as 12~degrees = $72 - 60$~degrees:
+\begin{eqnarray*}
+     \sin(12^\circ) &=& \sin(72^\circ) \cos(60^\circ) - \cos(72^\circ) \sin(60^\circ) \\
+                    &=& \frac{1}{4}\sqrt{10 + 2 \sqrt{5}} \cdot \frac{1}{2} - \frac{1}{4}(\sqrt{5} - 1) \cdot \frac{1}{2} \sqrt{3} \\
+                    &=& \frac{1}{8} \bigl(\sqrt{10 + 2 \sqrt{5}} - \sqrt{15} + \sqrt{3} \bigr)
+\end{eqnarray*}
+\noindent but even then it is completely impractical.
+
+\end{document}
