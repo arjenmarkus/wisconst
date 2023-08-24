@@ -64,4 +64,21 @@ For some of the multiples of 3~degrees (excluding the multiples of 15~degrees) t
 \end{eqnarray*}
 \noindent but even then it is completely impractical.
 
+\subsection*{Extending the table via a cubic equation}
+An alternative approach is to use the trigonometric formulae for tripling an angle:
+\begin{eqnarray*}
+    \cos 3 \alpha &=& 4 \cos^3 \alpha - 3 \cos \alpha \\
+    \sin 3 \alpha &=& 3 \sin^3 \alpha - 4 \sin^3 \alpha
+\end{eqnarray*}
+
+\noindent which follow after some straightforward manipulation. With the help of these formulae we can determine the exact sine and cosine of angles
+like 5, 10 and 20~degrees. And, if we persevere in both approaches, the table could even be extended to a complete set of exact expressions for
+all angles 0, 1, 2, ... 360~degrees: $1^\circ = 6^\circ - 5^\circ$ for instance.
+
+All it takes is finding the exact root of the cubic equations via Cardano's formula.\footnote{\url{https://mathworld.wolfram.com/CubicFormula.html}}
+Unfortunately, this results in expressions with cubic roots and you need to be careful with selecting the right root, as there is either one real root and
+two imaginary ones or there are three real roots.
+
+So, while this approach may lead to exact expressions of different angles, it does not lead to anything manageable either.
+
 \end{document}
