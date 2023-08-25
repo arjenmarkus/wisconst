@@ -106,7 +106,11 @@ Since we take the expression as $\textrm{mod}~p$, it can be simplified to:
 \nonumber    P(x) &\equiv& A \cdot a^n + B \cdot a^{n-1} + ... + Y \cdot a + Z \\
                   &\equiv& P(a)
 \end{eqnarray}
-We know that $P(0)$ is the prime 41, so there cannot be a smaller factor than 41 in any of the values $P(x)$.
+We know that $P(a)$ is a prime number equal to or larger than 41, for all values of $a$ from 0 to 39, so no prime $p$ smaller than $39+1$ (39 being the maximum value for $a$
+in the equation) can occur as a solution for:
+\begin{eqnarray}
+            P(a) &\equiv& 0 ~~~~\textrm{mod}~p
+\end{eqnarray}
 
 The series $P(0), P(1), ... P(39)$ does not contain all primes between 41 ($= P(0)$) and 1601 ($= P(39)$), so there is room for prime factors
 lower than 1601, like 163 and the others mentioned above. Similar conclusions hold for other polynomials that generate primes, as the line
