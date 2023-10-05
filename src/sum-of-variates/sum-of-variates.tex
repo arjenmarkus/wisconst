@@ -81,10 +81,23 @@ The curve that resulted is actually very close to the function $V(M)$:
 \end{eqnarray}
 
 \noindent where the factor $1/12$ comes from the variance of a single uniformly
-distributed number. \emph{Note:} I have not tried to determine this relation theoretically,
+distributed number.
+
+\emph{Note:} I have not tried to determine this relation theoretically,
 it was merely a hunch.
 
-It does seem odd, that you can make a wide distribution, like the uniform
+\emph{Note 2:} A few hours after I wrote this, I realised that in fact it is a
+straightforward consequence of the formula for the variance of a linear combination
+of two independent stochastic variables ($x$ and $y$, with $a$ and $b$ constants):
+
+\begin{eqnarray}
+\nonumber Var(ax + by) = a^2 Var(x) + b^2 Var(y)
+\end{eqnarray}
+
+Sometimes things are simple.
+
+
+It does seem odd, though, that you can make a wide distribution, like the uniform
 distribution, much narrower, i.e.\ having a much smaller variance, by simply
 splitting up the set of individual contributions into separate groups.
 
