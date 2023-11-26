@@ -1,0 +1,126 @@
+\documentclass[onecolumn]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\restylefloat{figure}
+\begin{document}
+
+\title{Permutations, derangements and variants}
+
+\author{Arjen Markus}
+
+\maketitle
+
+\section*{Introduction}
+The topic of this note is something I stumbled upon while working on some simple combinatorical issues. As you know,
+the number of permutations grows fast with the number of items. If you put some constraints on the permutations,
+like requiring that no item remains in the same position, you still end up with a large number, but it is smaller
+than a regular factorial number ($n!$). Permutations where no item occupies its original position are called
+derangements (cf.\ \url{https://mathworld.wolfram.com/Derangement.html}. The number of derangements of n items, $d_n$, can be calculated via
+a straightforward recurrence relation:
+\begin{eqnarray}
+\nonumber d_1     &=& 0 \\
+\nonumber d_{n+1} &=& n d_n + (-1)^{n+1}
+\end{eqnarray}
+
+While this number does not grow quite as fast as a factorial, it tends to a fraction of the factorial:
+\begin{eqnarray}
+\nonumber lim_{n \rightarrow \infty} \frac{d_{n+1}}{n!} = e
+\end{eqnarray}
+
+But what happens if you change the recurrence relation a bit? Instead of an alternating 1 and -1, always add 1 or subtract 1?
+
+It is easy enough to write a small program that calculates these numbers:
+\begin{eqnarray}
+\nonumber (n+1)!  &=& (n+1) n!           \\
+\nonumber a_{n+1} &=& n a_n - 1          \\
+\nonumber b_{n+1} &=& n b_n + 1          \\
+\nonumber c_{n+1} &=& n c_n + max(0, (-1)^{n+1} \\
+\nonumber d_{n+1} &=& n d_n + (-1)^{n+1} \\
+\end{eqnarray}
+
+\noindent with initial conditions somewhat arbitrarily chosen as $a_1 = 1, b_1 = 1, c_1 = 0, d_1 = 0$.
+
+The result for the first few values of n:
+
+\begin{table}[h!]
+\begin{tabular}{rrrrrr}
+$n$     &    $n!$     &    $a_n$    &    $b_n$    &    $c_n$ &    $d_n$    \\
+\hline
+ 1      &      1      &      1      &      1      &      0   &      0      \\
+ 2      &      2      &      1      &      3      &      1   &      1      \\
+ 3      &      6      &      2      &     10      &      3   &      2      \\
+ 4      &     24      &      7      &     41      &     13   &      9      \\
+ 5      &    120      &     34      &    206      &     65   &     44      \\
+ 6      &    720      &    203      &   1237      &    391   &    265      \\
+ 7      &   5040      &   1420      &   8660      &   2737   &   1854      \\
+ 8      &  40320      &  11359      &  69281      &  21897   &  14833      \\
+ 9      & 362880      & 102230      & 623530      & 197073   & 133496      \\
+\end{tabular}
+\end{table}
+
+Calculating the ratios with $n!$ gives the following results (written out with four decimals only):
+\begin{eqnarray}
+a_n / n! & \rightarrow & 0.2817...  \\
+b_n / n! & \rightarrow & 1.718...   \\
+c_n / n! & \rightarrow & 0.5431...  \\
+d_n / n! & \rightarrow & 0.3679...
+\end{eqnarray}
+
+The convergence is very fast -- it takes only eight steps to reach the end result in four decimals.
+We can see that $d_n$ (the number of derangements) converges to $/1e$, as expected. We can see that $a_n$ likely converges
+to $3-e$ and $b_n$ to $e-1$, judging from the numerical values.
+
+The last one, $c_n$, is a bit more difficult, but:
+\begin{eqnarray}
+\frac{0.5431}{e} & \approx & 0.19979
+\end{eqnarray}
+\noindent so one could expect the exact result to be $\frac{1}{5} e$.
+
+\section*{Analysis}
+The somewhat empirical considerations need to be substantiated and luckily it is not too difficult to
+analyse the results in a more thorough way. Let us take the following general relation:
+\begin{eqnarray}
+    A_1 &=& ... \\
+    A_{n+1} &=& (n+1) A_n + k_n
+\end{eqnarray}
+
+The ratio $A_{n+1} / (n+1)!$ can be written as:
+\begin{eqnarray}
+    \frac{A_{n+1}}{(n+1)!} &=& \frac{(n+1) A_n + k_n}{(n+1) n!} \\
+                           &=& \frac{A_n}{n!} + \frac{k_n}{(n+1)!}
+\end{eqnarray}
+
+Continuing this process we get the equation:
+\begin{eqnarray}
+    \frac{A_{n+1}}{(n+1)!} &=& A_1/1! + \sum_{i=2}^n \frac{k_i}{(i+1)!}
+\end{eqnarray}
+
+For $k_n = 1$ ($b_n$ in the definition above), this leads to:
+\begin{eqnarray}
+    lim_{n \rightarrow \infty} \frac{b_{n+1}}{(n+1)!} &=& 1 + \sum_{i=2}^n \frac{1}{(i+1)!} \\
+                                                     &=& 1 + e-2 ~=~ e-1
+\end{eqnarray}
+
+For $k_n = -1$ ($a_n$), we get:
+\begin{eqnarray}
+    lim_{n \rightarrow \infty} \frac{a_{n+1}}{(n+1)!} &=& 1 - \sum_{i=2}^n \frac{1}{(i+1)!} \\
+                                                      &=& 1 - (e-2) ~=~ 3 - e
+\end{eqnarray}
+
+Now the interesting case is $c_n$. The series is:
+\begin{eqnarray}
+    lim_{n \rightarrow \infty} \frac{c_{n+1}}{(n+1)!} &=& 0 + \frac{1}{2!} + \frac{1}{4!} + \frac{1}{6!} + ...
+\end{eqnarray}
+\noindent so with the odd terms cancelled. If we add the series for $e$ and $e^{-1}$, then we get a cancellation
+of these terms as well, so that (compensating for the first term, $1/0!$:
+\begin{eqnarray}
+    lim_{n \rightarrow \infty} \frac{c_{n+1}}{(n+1)!} &=& \frac{1}{2} \left(e + e^{-1} - 2 \right)
+\end{eqnarray}
+
+Numerically, the value is 0.5430806, quite close to $\frac{1}{5} e = 0.543656...$. The conclusion that the
+ratio converges to $\frac{1}{5} e$ is plainly the consequence of numerical similarity only.
+
+
+\end{document}
+
