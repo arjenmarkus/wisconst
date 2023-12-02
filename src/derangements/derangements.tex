@@ -11,12 +11,12 @@
 
 \maketitle
 
-\section*{Introduction}
-The topic of this note is something I stumbled upon while working on some simple combinatorical issues. As you know,
+\section*{Some recurrences}
+The topic of this note is something I stumbled upon while working on some simple combinatorical topics. As you know,
 the number of permutations grows fast with the number of items. If you put some constraints on the permutations,
 like requiring that no item remains in the same position, you still end up with a large number, but it is smaller
 than a regular factorial number ($n!$). Permutations where no item occupies its original position are called
-derangements (cf.\ \url{https://mathworld.wolfram.com/Derangement.html}. The number of derangements of n items, $d_n$, can be calculated via
+derangements (cf.\ \url{https://mathworld.wolfram.com/Derangement.html}). The number of derangements of n items, $d_n$, can be calculated via
 a straightforward recurrence relation:
 \begin{eqnarray}
 \nonumber d_1     &=& 0 \\
@@ -35,7 +35,7 @@ It is easy enough to write a small program that calculates these numbers:
 \nonumber (n+1)!  &=& (n+1) n!           \\
 \nonumber a_{n+1} &=& n a_n - 1          \\
 \nonumber b_{n+1} &=& n b_n + 1          \\
-\nonumber c_{n+1} &=& n c_n + max(0, (-1)^{n+1} \\
+\nonumber c_{n+1} &=& n c_n + max(0, (-1)^{n+1}) \\
 \nonumber d_{n+1} &=& n d_n + (-1)^{n+1} \\
 \end{eqnarray}
 
@@ -59,16 +59,16 @@ $n$     &    $n!$     &    $a_n$    &    $b_n$    &    $c_n$ &    $d_n$    \\
 \end{tabular}
 \end{table}
 
-Calculating the ratios with $n!$ gives the following results (written out with four decimals only):
+Calculating the ratios with $n!$ gives the following results (rounded to four decimals):
 \begin{eqnarray}
-a_n / n! & \rightarrow & 0.2817...  \\
-b_n / n! & \rightarrow & 1.718...   \\
-c_n / n! & \rightarrow & 0.5431...  \\
-d_n / n! & \rightarrow & 0.3679...
+a_n / n! & \rightarrow & 0.2817  \\
+b_n / n! & \rightarrow & 1.718   \\
+c_n / n! & \rightarrow & 0.5431  \\
+d_n / n! & \rightarrow & 0.3679
 \end{eqnarray}
 
 The convergence is very fast -- it takes only eight steps to reach the end result in four decimals.
-We can see that $d_n$ (the number of derangements) converges to $/1e$, as expected. We can see that $a_n$ likely converges
+We can see that $d_n$ (the number of derangements) converges to $1/e$, as expected. We can see that $a_n$ likely converges
 to $3-e$ and $b_n$ to $e-1$, judging from the numerical values.
 
 The last one, $c_n$, is a bit more difficult, but:
@@ -118,7 +118,7 @@ of these terms as well, so that (compensating for the first term, $1/0!$:
     lim_{n \rightarrow \infty} \frac{c_{n+1}}{(n+1)!} &=& \frac{1}{2} \left(e + e^{-1} - 2 \right)
 \end{eqnarray}
 
-Numerically, the value is 0.5430806, quite close to $\frac{1}{5} e = 0.543656...$. The conclusion that the
+Numerically, the value is 0.5430806..., quite close to $\frac{1}{5} e = 0.543656...$. The expectation that the
 ratio converges to $\frac{1}{5} e$ is plainly the consequence of numerical similarity only.
 
 

@@ -20,10 +20,10 @@ Parts of the cube or parts of the sphere may stick out and the question is how l
 of these parts? The answer depends on the relative size of the two and in some cases it will be
 awkward to calculate.
 
-Figure \ref{square_circle} is an illustration in two dimensions of the problem:
+Figure \ref{square_circle} is an illustration in two dimensions of the problem.
 
 \begin{figure}[H]
-\caption{Intersection of a square (side 2) and a circle: (A) circle with radius 1, (B) circle with radius $\sqrt{2}$}.
+\caption{Intersection of a square (side 2) and a circle: (A) circle with radius 1, (B) circle with radius $\sqrt{2}$.}
 \label{square_circle}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{circle_square_sketch.pdf}
@@ -54,10 +54,30 @@ outside the square is:
 \end{center}
 \end{figure}
 
-It is actually easy to calculate these areas for any radius of the circle.
+It is actually easy to calculate these areas for any radius of the circle (cf. Figure \ref{corner}). For
+radii between 1 and $\sqrt{2}$ the area is not empty:
+\begin{eqnarray}
+\nonumber  z &=& \sqrt{R^2 - 1^2} \\
+\nonumber  A &=& \int_z^1 1-\sqrt{R^2 - x^2} dx
+\end{eqnarray}
+
+Evaluating the integral:
+\begin{eqnarray}
+\nonumber  A &=& (1-z) -\frac{1}{2} \bigl [R^2 \arcsin{\frac{x}{R}} + x \sqrt{R^2 - x^2} \bigr]_z^1  \\
+\nonumber    &=& 1 - \sqrt{R^2-1} - \frac{1}{2} R^2 \bigl (\arcsin{\frac{1}{R}} - \arcsin{\frac{\sqrt{R^2-1}}{R}} \bigr)
+\end{eqnarray}
+
+
+\begin{figure}[H]
+\caption{Calculation of the area between a circle and a square.}
+\label{corner}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{circle_corner_sketch.pdf}
+\end{center}
+\end{figure}
 
 \section*{The three-dimensional case}
-For the intersection of a cube and a sphere we have three more or less special situations:
+For the intersection of a cube (of side 2) and a sphere we have three more or less special situations:
 \begin{itemize}
 \item
 The sphere touches the centres of the cube's faces -- the radius is equal to half the side of the cube.
@@ -67,13 +87,13 @@ It is akin to figure \ref{square_circle}A. The volume outside the sphere is:
 \end{eqnarray}
 
 \item
-The sphere touches the vertices of the cube -- the radius is equal to $\sqrt{3}$ times the side of the cube.
+The sphere touches the vertices of the cube -- the radius is equal to $\sqrt{3}$.
 This is akin to figure \ref{square_circle}B. The volume outside the cube is:
 \begin{eqnarray}
 \nonumber    V &=& \frac{4}{3} \pi \cdot (\sqrt{3})^3 - 8 ~\approx~ 13.765592370810609
 \end{eqnarray}
 \item
-The sphere touches the midpoints of the edges of the cube -- the radius is equal to $\sqrt{2}$ times the side of the cube.
+The sphere touches the midpoints of the edges of the cube -- the radius is equal to $\sqrt{2}$.
 This has no easy equivalent to the two-dimensional case and calculating the volumes is a bit more involved, but not
 overly difficult. (Radii between $\sqrt{2}$ and $\sqrt{3}$ create much more difficulties and are not included here.)
 \end{itemize}
@@ -89,7 +109,7 @@ overly difficult. (Radii between $\sqrt{2}$ and $\sqrt{3}$ create much more diff
 This last case requires some ingenuity:
 \begin{itemize}
 \item
-We first need to determine how much of the sphere sticks out. As illustrated in Figure \ref{sphere_cube} the
+We first determine how much of the sphere sticks out. As illustrated in Figure \ref{sphere_cube} the
 parts that stick out are spherical caps. The volume is easy to calculate (see Figure \ref{integral}):
 \begin{eqnarray}
 \nonumber V_{cap} &=& \int_{1}^{\sqrt{2}} \pi (2 - x^2) dx \\
