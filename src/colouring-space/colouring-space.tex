@@ -152,8 +152,42 @@ Most likely you can extend this type of division to other dimensions as well,
 although it is very difficult to visualise such divisions. For two dimensions
 there is a peculiar problem: periodic solutions, like the
 ones we have seen here with a finite unit cell, seem impossible. One alternative
-is a spiral-like design. This is intriguing. It might be possible to use the
-ideas behind Peano curves\footnote{\url{https://en.wikipedia.org/wiki/Peano_curve}}.
+is a spiral-like design. You can easily see that a periodic solution is not
+possible (though the line of reasoning hardly consitutes a rigorous proof):
+If you could construct a periodic solution, then there would be a chain of squares
+all of one colour that stretches from one end of the plane to the other. The chain
+may be very complicated in shape, but essentially it would divide the plane into
+at least two parts. So, it would not be possible for another unbroken chain to fill
+the rest of the plain.
+
+\begin{figure}
+\center
+\caption{Examples of spirals covering the plane.}
+\label{squares_spiralling}
+\includegraphics[width=0.8\textwidth]{squares_spiralling.pdf}
+\end{figure}
+
+
+\section*{Spiral solutions in two dimensions}
+To get an idea of the spiral-like solutions consider the picture with spirals of
+two, three and four different colours (figure \ref{squares_spiralling}). The central part is where the pattern is
+not uniform, but the overall pattern is uniform in the sense that all colours
+occupy an equal number of squares and there is no preference for one direction
+or the other.
+
+\begin{figure}
+\center
+\caption{Systematic set-up for an arbitrary number of colours.}
+\label{systematic_spiralling}
+\includegraphics[width=0.8\textwidth]{systematic_spiralling.pdf}
+\end{figure}
+
+There are endless possibilities to arrange the spirals, like a central region where the coloured
+chains follow a zig-zag pattern before settling on a spiral, the solutions shown are but a
+single possibility. It is even possible to set up this simple type in a systematic way,
+using any number of colours, as shown in Figure \ref{systematic_spiralling}: start with a row
+of squares with all the colours and add a square with the colour at the end, going round the row (orange in the figure).
+Then the last but one colour (magenta) can form a spiral going around that one and so on.
 
 \end{document}
 
