@@ -114,7 +114,7 @@ It is not immediately clear, but the unit cell as shown fills space in the same 
 the ordinary blocks of 27 cubes from the first solution. And the configuration is the same
 for all three colours. Extending this design to four or more colours will require selecting
 the right cubes, though, just as in the first solution. Since the block for $n$ colours would
-consist of $n^3$ cubes and the sides take up only $n+2(n-1 ~=~ 3n-2$ cubes, it will become
+consist of $n^3$ cubes and the sides take up only $n+2(n-1) ~=~ 3n-2$ cubes, it will become
 progressively more complicated to select the $n^2 - 3n + 2$ needed.
 
 
@@ -188,6 +188,36 @@ single possibility. It is even possible to set up this simple type in a systemat
 using any number of colours, as shown in Figure \ref{systematic_spiralling}: start with a row
 of squares with all the colours and add a square with the colour at the end, going round the row (orange in the figure).
 Then the last but one colour (magenta) can form a spiral going around that one and so on.
+
+
+\section*{Fully separated colours}
+An alternative to the patterns where the cubes of the same colour are all connected is one where the
+cubes do not have any face in common with a cube of that colour. It is rather easy to construct such a pattern,
+but it seems difficult to even begin to estimate how many possibilities there are.
+
+The construction as shown in figure \ref{separated_colours} is straightforward:
+\begin{itemize}
+\item
+The cubes in the first row are coloured in three different colours -- blue, red, green.
+\item
+The adjacent row has colours that are cyclically shifted: red, green, blue. The same for the next row: green, blue, red.
+\item
+The layer on top of the lowest layer uses the same shift, resulting in a pattern where no two cubes that share a face have
+the same colour.
+\end{itemize}
+%
+This can easily be extended to any number of colours, but what variations are possible, is not clear. When you join the
+unit cells, the division of the cubes in unit cells may be shifted and this leads to a different ordering within the
+new unit cell, at least superficially. I have not examined whether there are indeed different patterns possible with
+three or more colours. The colours themselves can be permuted without making it a different pattern perse.
+
+\begin{figure}
+\center
+\caption{Fully separated pattern with three colours.}
+\label{separated_colours}
+\includegraphics[width=0.8\textwidth]{three_separated_colours.pdf}
+\end{figure}
+
 
 \end{document}
 
